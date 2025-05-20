@@ -21,6 +21,7 @@ import SettingsPage from './components/SettingsPage';
 import RefereeManageScores from './components/referee/RefereeManageScores';
 import MatchScheduleReferee from './components/referee/RefereeMatchSchedule';
 import AdminRegistrations from './components/admin/AdminRegistration';
+import RefereePlayers from "./components/referee/RefereePlayers";
 
 class App extends React.Component {
     constructor(props) {
@@ -117,6 +118,7 @@ class App extends React.Component {
                                 : <Navigate to="/login" replace />
                         }
                     />
+                    <Route path="/referee/players"   element={<RefereePlayers />} />
                     <Route
                         path="/referee/my-upcoming-matches"
                         element={

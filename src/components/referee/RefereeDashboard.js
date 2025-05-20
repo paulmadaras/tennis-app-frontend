@@ -1,21 +1,27 @@
 // src/components/RefereeDashboard.js
 import React from 'react';
 import {
-    AppBar, Toolbar, Typography, Container, Stack,
-    Button, IconButton
+    AppBar,
+    Toolbar,
+    Typography,
+    Container,
+    Stack,
+    Button,
+    IconButton
 } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon   from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
 
-export default function RefereeDashboard({ currentUserId }) {
+export default function RefereeDashboard() {
     const navigate = useNavigate();
 
-    const handleMySchedule   = () => navigate('/referee/matches');
-    const handleManageScores = () => navigate('/referee/manage-scores');
-    const handleSettings     = () => navigate('/settings');
-    const handleLogout       = () => {
-        // TODO: clear auth
+    const handleViewPlayers   = () => navigate('/referee/players');
+    const handleMySchedule    = () => navigate('/referee/matches');
+    const handleManageScores  = () => navigate('/referee/manage-scores');
+    const handleSettings      = () => navigate('/settings');
+    const handleLogout        = () => {
+        // TODO: clear auth token/session here
         navigate('/login');
     };
 
@@ -35,11 +41,18 @@ export default function RefereeDashboard({ currentUserId }) {
                 </Toolbar>
             </AppBar>
 
-            <Container sx={{ marginTop: 4 }}>
+            <Container sx={{ mt: 4 }}>
                 <Typography variant="h4" align="center" gutterBottom>
                     Welcome, Referee!
                 </Typography>
                 <Stack spacing={2} direction="column" alignItems="center">
+                    <Button
+                        variant="contained"
+                        sx={{ width: '60%', height: '80px', fontSize: '1.2rem' }}
+                        onClick={handleViewPlayers}
+                    >
+                        View Players
+                    </Button>
                     <Button
                         variant="contained"
                         sx={{ width: '60%', height: '80px', fontSize: '1.2rem' }}
